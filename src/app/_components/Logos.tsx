@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const Logos = () => {
   return (
-    <div className="my-30 pt-8 md:pt-0 sm:my-30 w-full place-content-center">
+    <div id="clients" className="my-30 pt-8 md:pt-0 sm:my-30 w-full place-content-center">
       <ScrollReveal childSelector=".reveal-item" className="relative mx-auto max-w-3xl">
         <h2 className="reveal-item mb-5 text-center font-medium text-foreground text-xl tracking-tight md:text-3xl">
           <span className="text-muted-foreground">Trusted by experts.</span>

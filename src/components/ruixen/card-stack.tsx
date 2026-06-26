@@ -9,6 +9,7 @@ import {
 } from "motion/react";
 import { SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 function cn(...classes: Array<string | undefined | null | false>) {
   return classes.filter(Boolean).join(" ");
@@ -217,12 +218,14 @@ const DefaultFanCard = React.memo(function DefaultFanCard({
       {/* image */}
       <div className="absolute inset-0">
         {item.imageSrc ? (
-          <img
+          <Image
             src={item.imageSrc}
             alt={item.title}
-            className="h-full w-full object-cover"
+            fill
+            className="object-cover"
             draggable={false}
-            loading="eager"
+            loading="lazy"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 420px, 520px"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-secondary text-sm text-muted-foreground">

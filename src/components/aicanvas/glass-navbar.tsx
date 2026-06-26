@@ -1,12 +1,14 @@
 "use client";
 
-// npm install @phosphor-icons/react framer-motion
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { List, X } from "@phosphor-icons/react";
 
-const NAV_ITEMS = ["Products", "About", "Blog"];
+const NAV_ITEMS = [
+  { label: "Work", id: "work" },
+  { label: "Clients", id: "clients" },
+  { label: "Contact", id: "contact" }
+];
 
 export default function GlassNavbar() {
   const [active, setActive] = useState<number | null>(null);
@@ -20,7 +22,6 @@ export default function GlassNavbar() {
       "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
   };
 
-  // Blur kept separate — applying it on the animated element forces a repaint every animation frame
   const glassBlur = {
     backdropFilter: "blur(24px) saturate(1.8)",
     WebkitBackdropFilter: "blur(24px) saturate(1.8)",
@@ -37,6 +38,16 @@ export default function GlassNavbar() {
     boxShadow: "0 4px 24px rgba(78, 119, 154, 0.55)",
   };
 
+  const handleScroll = (e: React.MouseEvent, id: string, index: number) => {
+    e.preventDefault();
+    setActive(index);
+    setMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div
       className="fixed top-6 left-1/2 flex w-[calc(100%-2rem)] max-w-[720px] -translate-x-1/2 flex-col"
@@ -50,12 +61,11 @@ export default function GlassNavbar() {
         className="relative isolate flex w-full items-center gap-1 rounded-full px-2 py-2"
         style={glassStyle}
       >
-        {/* Blur layer — non-animating, isolated from the infinite-spin logo inside */}
         <div
           className="pointer-events-none absolute inset-0 z-[-1] rounded-full"
           style={glassBlur}
         />
-        {/* Logo — clicking resets to home (no active link) */}
+        {/* Logo */}
         <div
           className="flex cursor-pointer items-center gap-2 px-3"
           onClick={() => setActive(null)}
@@ -72,12 +82,13 @@ export default function GlassNavbar() {
         {/* Spacer */}
         <div className="flex-1" />
 
-        {/* ── Desktop nav (sm and up) ── */}
+        {/* ── Desktop nav ── */}
         <div className="hidden items-center gap-1 sm:flex">
           {NAV_ITEMS.map((item, i) => (
-            <motion.button
-              key={item}
-              onClick={() => setActive(i)}
+            <motion.a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => handleScroll(e, item.id, i)}
               onHoverStart={() => setHovered(i)}
               onHoverEnd={() => setHovered(null)}
               className="relative cursor-pointer rounded-full px-5 py-2 text-sm font-medium"
@@ -101,20 +112,22 @@ export default function GlassNavbar() {
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
-              <span className="relative z-10">{item}</span>
-            </motion.button>
+              <span className="relative z-10">{item.label}</span>
+            </motion.a>
           ))}
 
           {/* Get Started */}
-          <motion.button
+          <motion.a
+            href="#contact"
+            onClick={(e) => handleScroll(e, "contact", 2)}
             whileHover={{ scale: 1.04, ...ctaHoverStyle }}
             whileTap={{ scale: 0.96 }}
-            className="ml-2 cursor-pointer rounded-full px-5 py-2 text-sm font-semibold text-white"
+            className="ml-2 cursor-pointer rounded-full px-5 py-2 text-sm font-semibold text-white text-center"
             style={ctaStyle}
             transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
           >
             Get Started
-          </motion.button>
+          </motion.a>
         </div>
 
         <motion.button
@@ -165,12 +178,10 @@ export default function GlassNavbar() {
               style={glassBlur}
             />
             {NAV_ITEMS.map((item, i) => (
-              <button
-                key={item}
-                onClick={() => {
-                  setActive(i);
-                  setMenuOpen(false);
-                }}
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleScroll(e, item.id, i)}
                 className="cursor-pointer rounded-full px-5 py-2.5 text-left text-sm font-medium transition-colors"
                 style={{
                   color:
@@ -181,16 +192,17 @@ export default function GlassNavbar() {
                     active === i ? "rgba(255,255,255,0.1)" : "transparent",
                 }}
               >
-                {item}
-              </button>
+                {item.label}
+              </a>
             ))}
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="mt-1 cursor-pointer rounded-full px-5 py-2.5 text-sm font-semibold text-white"
+            <a
+              href="#contact"
+              onClick={(e) => handleScroll(e, "contact", 2)}
+              className="mt-1 cursor-pointer rounded-full px-5 py-2.5 text-sm font-semibold text-white text-center"
               style={ctaStyle}
             >
               Get Started
-            </button>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

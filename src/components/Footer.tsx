@@ -1,6 +1,8 @@
-"use client";
+import dynamic from "next/dynamic";
 
-import { CinematicFooter } from "@/components/ui/motion-footer";
+const CinematicFooter = dynamic(() =>
+  import("@/components/ui/motion-footer").then((m) => m.CinematicFooter)
+);
 
 export default function Footer() {
   return <CinematicFooter />;

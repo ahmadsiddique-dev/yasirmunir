@@ -1,9 +1,10 @@
+import dynamic from "next/dynamic";
 import Hero from "./_components/Hero";
-import Logos from "./_components/Logos";
-import Carousel from "./_components/Carousel";
-import Contact from "./_components/Contact";
-import TimelineShowcaseCard from "./_components/TimelineShowcaseCard";
-import Scrollvelocity from "./_components/Scrollvelocity";
+
+const Scrollvelocity = dynamic(() => import("./_components/Scrollvelocity"));
+const Carousel = dynamic(() => import("./_components/Carousel"));
+const Logos = dynamic(() => import("./_components/Logos"));
+const Contact = dynamic(() => import("./_components/Contact"));
 
 export default function Home() {
   return (
@@ -11,7 +12,6 @@ export default function Home() {
       <Hero />
       <Scrollvelocity />
       <Carousel />
-      {/* <TimelineShowcaseCard /> */}
       <Logos />
       <Contact />
     </>

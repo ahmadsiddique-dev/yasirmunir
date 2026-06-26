@@ -1,10 +1,23 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
-import Lightfall from "@/components/Lightfall";
+
 import TextPressure from "@/components/TextPressure";
 import { RadialIntro } from "@/components/animate-ui/components/community/radial-intro";
+
+const ITEMS = [
+  { id: 1, name: "Framer University", src: "./technos/logo1.png" },
+  { id: 2, name: "arhamkhnz", src: "./technos/logo2.png" },
+  { id: 3, name: "Skyleen", src: "./technos/logo3.png" },
+  { id: 4, name: "Shadcn", src: "./technos/logo4.png" },
+  { id: 5, name: "Adam Wathan", src: "./technos/logo5.png" },
+  { id: 6, name: "Guillermo Rauch", src: "./technos/logo6.png" },
+  { id: 7, name: "Jhey", src: "./technos/logo7.png" },
+  { id: 8, name: "David Haz", src: "./technos/logo8.png" },
+  { id: 9, name: "Matt Perry", src: "./technos/logo9.png" },
+];
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,143 +30,38 @@ const Hero = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         glowRef.current,
-        {
-          opacity: 0,
-          scale: 0.5,
-        },
-        {
-          opacity: 0.25,
-          scale: 1,
-          duration: 2,
-          ease: "power3.out",
-        },
+        { opacity: 0, scale: 0.5 },
+        { opacity: 0.25, scale: 1, duration: 2, ease: "power3.out" },
       );
 
       gsap.fromTo(
         imageRef.current,
-        {
-          opacity: 0,
-          x: -100,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1.5,
-          delay: 0.2,
-          ease: "power3.out",
-        },
+        { opacity: 0, x: -100 },
+        { opacity: 1, x: 0, duration: 1.5, delay: 0.2, ease: "power3.out" },
       );
 
       gsap.fromTo(
         titleWrapperRef.current,
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          delay: 0.4,
-          ease: "power3.out",
-        },
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1.2, delay: 0.4, ease: "power3.out" },
       );
 
       gsap.fromTo(
         descRef.current,
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          delay: 0.6,
-          ease: "power3.out",
-        },
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1.2, delay: 0.6, ease: "power3.out" },
       );
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
-  const ITEMS = [
-    {
-      id: 1,
-      name: "Framer University",
-      src: "./technos/logo1.png",
-    },
-    {
-      id: 2,
-      name: "arhamkhnz",
-      src: "./technos/logo2.png",
-    },
-    {
-      id: 3,
-      name: "Skyleen",
-      src: "./technos/logo3.png",
-    },
-    {
-      id: 4,
-      name: "Shadcn",
-      src: "./technos/logo4.png",
-    },
-    {
-      id: 5,
-      name: "Adam Wathan",
-      src: "./technos/logo5.png",
-    },
-    {
-      id: 6,
-      name: "Guillermo Rauch",
-      src: "./technos/logo6.png",
-    },
-    {
-      id: 7,
-      name: "Jhey",
-      src: "./technos/logo7.png",
-    },
-    {
-      id: 8,
-      name: "David Haz",
-      src: "./technos/logo8.png",
-    },
-    {
-      id: 9,
-      name: "Matt Perry",
-      src: "./technos/logo9.png",
-    },
-  ];
-
   return (
     <div
       ref={containerRef}
       className="relative mask-b-from-70% w-full min-h-screen bg-background overflow-hidden flex flex-col justify-between"
     >
-      <div
-        className="absolute inset-0"
-        style={{ zIndex: 1, transform: "translate3d(0,0,0)" }}
-      >
-        <Lightfall
-          colors={["#A6C8FF", "#5227FF", "#FF9FFC"]}
-          backgroundColor="var(--background)"
-          speed={0.5}
-          streakCount={2}
-          streakWidth={1}
-          streakLength={1}
-          glow={1}
-          density={0.6}
-          twinkle={1}
-          zoom={3}
-          backgroundGlow={0.5}
-          opacity={1}
-          mouseInteraction
-          mouseStrength={0.5}
-          mouseRadius={1}
-          className=""
-        />
-      </div>
+
 
       <div
         ref={glowRef}
@@ -169,32 +77,26 @@ const Hero = () => {
         <div
           ref={imageRef}
           className="relative pointer-events-none w-[80vw] max-w-[400px] md:w-[45vw] md:max-w-[650px] flex items-end justify-center md:justify-start col-start-1 row-start-2 md:row-start-1 md:row-span-2 md:col-start-1 justify-self-center md:justify-self-start opacity-0"
-          style={{
-            zIndex: 10,
-            transform: "translate3d(0,0,0)",
-          }}
+          style={{ zIndex: 10, transform: "translate3d(0,0,0)" }}
         >
-          <img
+          <Image
             src="/image.png"
             alt="Yasir Munir"
+            width={650}
+            height={800}
+            priority
             className="w-full h-auto object-contain mb-8.5"
             style={{
-              filter:
-                "drop-shadow(0 20px 50px rgba(0, 0, 0, 0.7)) contrast(1.04) saturate(1.1)",
-              WebkitMaskImage:
-                "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
-              maskImage:
-                "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
+              filter: "drop-shadow(0 20px 50px rgba(0, 0, 0, 0.7)) contrast(1.04) saturate(1.1)",
+              WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
+              maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
             }}
           />
         </div>
 
         <div
           className="relative w-full flex flex-col items-center justify-center md:items-end md:justify-end pb-8 md:pb-24 col-start-1 row-start-1 md:row-start-1 md:col-start-2"
-          style={{
-            zIndex: 10,
-            transform: "translate3d(0,0,0)",
-          }}
+          style={{ zIndex: 10, transform: "translate3d(0,0,0)" }}
         >
           <div
             ref={titleWrapperRef}

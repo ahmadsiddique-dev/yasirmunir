@@ -63,7 +63,7 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div className="min-h-[80vh] mask-b-from-70% w-full bg-background my-18 md:my-38 text-foreground p-4 md:p-8 flex items-center justify-center overflow-hidden">
+    <div id="work" className="min-h-[80vh] mask-b-from-70% w-full bg-background my-18 md:my-38 text-foreground p-4 md:p-8 flex items-center justify-center overflow-hidden">
       <ScrollReveal className="w-full flex items-center justify-center" scale={0.8} y={100}>
         <CardStack
           items={items}
