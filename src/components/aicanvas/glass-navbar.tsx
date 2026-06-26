@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { List, X } from "@phosphor-icons/react";
 
@@ -67,16 +68,18 @@ export default function GlassNavbar() {
         />
         {/* Logo */}
         <div
-          className="flex cursor-pointer items-center gap-2 px-3"
+          className="flex cursor-pointer items-center gap-2 pl-1 pr-2"
           onClick={() => setActive(null)}
         >
-          <motion.div
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="h-6 w-6 rounded-lg"
-            style={{ background: "linear-gradient(135deg, #FF6BF5, #FFBE0B)" }}
-          />
-          <span className="text-sm font-semibold text-white/90">Studio</span>
+          <div className="relative h-10 w-10">
+            <Image
+              src="/logo.png"
+              alt="Yasir Munir Logo"
+              fill
+              className="object-contain rounded-full"
+              priority
+            />
+          </div>
         </div>
 
         {/* Spacer */}

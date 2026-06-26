@@ -75,6 +75,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  appleWebApp: {
+    title: "Yasir Munir",
+  },
 };
 
 export default function RootLayout({
