@@ -301,7 +301,7 @@ export function CinematicFooter() {
             ref={giantTextRef}
             className="footer-giant-bg-text absolute -bottom-[5vh] left-1/2 -translate-x-1/2 whitespace-nowrap z-0 pointer-events-none select-none"
           >
-            YASIR MUNIR
+            YASIR
           </div>
 
           {/* 1. Diagonal Sleek Marquee (Top of footer) */}
@@ -366,9 +366,9 @@ export function CinematicFooter() {
             {/* "Made with Love" Badge */}
             <div className="footer-glass-pill px-6 py-3 rounded-full flex items-center gap-2 order-1 md:order-2 cursor-default border-border/50">
               <span className="text-muted-foreground text-[10px] md:text-xs font-bold uppercase tracking-widest">Crafted with</span>
-              <span className="animate-footer-heartbeat text-sm md:text-base text-destructive">❤</span>
+              <span className=" text-sm md:text-base ">&lt;3</span>
               <span className="text-muted-foreground text-[10px] md:text-xs font-bold uppercase tracking-widest">by</span>
-              <span className="text-foreground font-black text-xs md:text-sm tracking-normal ml-1">Yasir</span>
+              <span className=" text-destructive font-black text-xs md:text-sm tracking-normal ml-1 animate-footer-heartbeat">Ahmad Siddique</span>
             </div>
 
             {/* Back to top */}

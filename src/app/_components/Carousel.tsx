@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { CardStack, CardStackItem } from "@/components/ruixen/card-stack";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const items: CardStackItem[] = [
   {
@@ -62,16 +63,18 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div className="min-h-[80vh] mask-b-from-70% w-full bg-background text-foreground p-4 md:p-8 flex items-center justify-center overflow-hidden">
-      <CardStack
-        items={items}
-        cardWidth={dimensions.width}
-        cardHeight={dimensions.height}
-        initialIndex={0}
-        autoAdvance
-        intervalMs={3000}
-        pauseOnHover
-      />
+    <div className="min-h-[80vh] mask-b-from-70% w-full bg-background my-18 md:my-38 text-foreground p-4 md:p-8 flex items-center justify-center overflow-hidden">
+      <ScrollReveal className="w-full flex items-center justify-center" scale={0.8} y={100}>
+        <CardStack
+          items={items}
+          cardWidth={dimensions.width}
+          cardHeight={dimensions.height}
+          initialIndex={0}
+          autoAdvance
+          intervalMs={3000}
+          pauseOnHover
+        />
+      </ScrollReveal>
     </div>
   );
 }

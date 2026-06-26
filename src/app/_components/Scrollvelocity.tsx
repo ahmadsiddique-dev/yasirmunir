@@ -2,9 +2,9 @@ import Scroll from "@/components/ScrollVelocity";
 
 const Scrollvelocity = () => {
   return (
-    <div className="my-8 w-full overflow-hidden">
+    <div className="my-28 w-full overflow-hidden">
       <Scroll
-        texts={["Multan, Top Digital Marketer", "Scroll Down"]}
+        texts={["META CERTIFIED", "DIGITAL MARKETER"]}
         velocity={100}
         className="custom-scroll-text"
         numCopies={6}
