@@ -89,7 +89,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">
         <GlassNavbar />
-        <main className="relative z-10 bg-background w-full flex-1 rounded-b-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+        <main className="relative bg-background w-full flex-1 rounded-b-3xl">
           {children}
         </main>
         <Footer />

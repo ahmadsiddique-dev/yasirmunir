@@ -498,7 +498,7 @@ export function CardStack<T extends CardStackItem>({
               className="text-muted-foreground hover:text-foreground transition"
               aria-label="Open link"
             >
-              <SquareArrowOutUpRight className="h-4 w-4" />
+              <></>
             </Link>
           ) : null}
         </div>

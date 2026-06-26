@@ -74,6 +74,25 @@ const Hero = () => {
       />
 
       <div className="relative w-full flex-1 grid grid-cols-1 md:grid-cols-2 grid-rows-[auto_auto_auto] md:grid-rows-[auto_1fr] gap-x-6 md:gap-x-0 gap-y-4 md:gap-y-0 px-6 md:pl-0 md:pr-[8%] pt-22 md:pt-0 pb-8 md:pb-0 z-10 items-center md:items-end">
+
+        {/* Title — mobile row 1, desktop top-right */}
+        <div
+          className="relative w-full flex flex-col items-center md:items-end col-start-1 row-start-1 md:row-start-1 md:col-start-2"
+          style={{ zIndex: 10, transform: "translate3d(0,0,0)" }}
+        >
+          <div
+            ref={titleWrapperRef}
+            className="w-full max-w-[700px] h-[120px] md:mt-32 md:h-[220px] flex justify-center opacity-0"
+          >
+            <TextPressure
+              text="Yasir Munir"
+              textColor="var(--foreground)"
+              minFontSize={48}
+            />
+          </div>
+        </div>
+
+        {/* Image — mobile row 2, desktop left spanning both rows */}
         <div
           ref={imageRef}
           className="relative pointer-events-none w-[80vw] max-w-[400px] md:w-[45vw] md:max-w-[650px] flex items-end justify-center md:justify-start col-start-1 row-start-2 md:row-start-1 md:row-span-2 md:col-start-1 justify-self-center md:justify-self-start opacity-0"
@@ -88,30 +107,25 @@ const Hero = () => {
             className="w-full h-auto object-contain mb-8.5"
             style={{
               filter: "drop-shadow(0 20px 50px rgba(0, 0, 0, 0.7)) contrast(1.04) saturate(1.1)",
-              WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
-              maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 65%, transparent 100%), linear-gradient(to right, transparent, black 18%, black 82%, transparent)",
+              maskImage: "linear-gradient(to bottom, black 65%, transparent 100%), linear-gradient(to right, transparent, black 18%, black 82%, transparent)",
+              WebkitMaskComposite: "destination-in",
+              maskComposite: "intersect",
             }}
           />
         </div>
 
+        {/* Icons — mobile row 3, desktop bottom-right */}
         <div
-          className="relative w-full flex flex-col items-center justify-center md:items-end md:justify-end pb-8 md:pb-24 col-start-1 row-start-1 md:row-start-1 md:col-start-2"
+          ref={descRef}
+          className="relative flex justify-center md:justify-end md:items-end pb-8 md:pb-24 col-start-1 row-start-3 md:row-start-2 md:col-start-2"
           style={{ zIndex: 10, transform: "translate3d(0,0,0)" }}
         >
-          <div
-            ref={titleWrapperRef}
-            className="w-full max-w-[700px] h-[120px] md:mt-32 md:h-[220px] flex justify-center opacity-0"
-          >
-            <TextPressure
-              text="Yasir Munir"
-              textColor="var(--foreground)"
-              minFontSize={48}
-            />
-          </div>
           <div className="md:mr-37">
             <RadialIntro orbitItems={ITEMS} />
           </div>
         </div>
+
       </div>
     </div>
   );
