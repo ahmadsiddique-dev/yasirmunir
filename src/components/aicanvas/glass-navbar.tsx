@@ -27,16 +27,14 @@ export default function GlassNavbar() {
   };
 
   const ctaStyle = {
-    background:
-      "linear-gradient(135deg, rgba(255, 160, 50, 0.75), rgba(220, 60, 40, 0.6))",
-    border: "1px solid rgba(255, 180, 80, 0.25)",
-    boxShadow: "0 2px 16px rgba(220, 80, 30, 0.4)",
+    background: "rgba(78, 119, 154, 0.85)",
+    border: "1px solid rgba(78, 119, 154, 0.4)",
+    boxShadow: "0 2px 16px rgba(78, 119, 154, 0.35)",
   };
 
   const ctaHoverStyle = {
-    background:
-      "linear-gradient(135deg, rgba(255, 180, 80, 0.9), rgba(235, 75, 45, 0.8))",
-    boxShadow: "0 4px 24px rgba(220, 80, 30, 0.6)",
+    background: "rgba(78, 119, 154, 1)",
+    boxShadow: "0 4px 24px rgba(78, 119, 154, 0.55)",
   };
 
   return (

@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Lightfall from "@/components/Lightfall";
-import GlassNavbar from "@/components/aicanvas/glass-navbar";
 import TextPressure from "@/components/TextPressure";
 import { RadialIntro } from '@/components/animate-ui/components/community/radial-intro';
 
@@ -113,11 +112,11 @@ const ITEMS = [
 ];
 
   return (
-    <div ref={containerRef} className="relative mask-b-from-70% w-full min-h-screen bg-[#1A1A19] overflow-hidden flex flex-col justify-between">
+    <div ref={containerRef} className="relative mask-b-from-70% w-full min-h-screen bg-background overflow-hidden flex flex-col justify-between">
       <div className="absolute inset-0" style={{ zIndex: 1, transform: "translate3d(0,0,0)" }} >
         <Lightfall
           colors={["#A6C8FF", "#5227FF", "#FF9FFC"]}
-          backgroundColor="#1A1A19"
+          backgroundColor="var(--background)"
           speed={0.5}
           streakCount={2}
           streakWidth={1}
@@ -176,7 +175,7 @@ const ITEMS = [
           <div ref={titleWrapperRef} className="w-full max-w-[700px] h-[120px] md:mt-32 md:h-[220px] flex justify-center opacity-0">
             <TextPressure
               text="Yasir Munir"
-              textColor="#FFFFFF"
+              textColor="var(--foreground)"
               minFontSize={48}
             />
           </div>
@@ -185,8 +184,6 @@ const ITEMS = [
           </div>
         </div>
       </div>
-
-      <GlassNavbar />
     </div>
   );
 };
