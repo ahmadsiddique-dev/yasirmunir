@@ -5,7 +5,7 @@ const Scrollvelocity = () => {
     <div className="md:my-28 mt-0 w-full overflow-hidden">
       <Scroll
         texts={["META CERTIFIED", "DIGITAL MARKETER"]}
-        velocity={100}
+        velocity={40}
         className="custom-scroll-text"
         numCopies={6}
         damping={50}
