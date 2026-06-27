@@ -1,14 +1,12 @@
 "use client";
 
 import Hyperspeed from '@/components/Hyperspeed';
-import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -20,28 +18,10 @@ const Hero = () => {
         { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.out' }
       );
     }
-    
-    if (imageRef.current) {
-      tl.fromTo(
-        imageRef.current,
-        { y: 80, opacity: 0, scale: 0.95, rotateX: 15 },
-        { y: 0, opacity: 1, scale: 1, rotateX: 0, duration: 1.2, ease: 'power3.out' },
-        '-=0.6'
-      );
-      
-      // Continuous floating animation
-      gsap.to(imageRef.current, {
-        y: '-=15',
-        duration: 3,
-        yoyo: true,
-        repeat: -1,
-        ease: 'sine.inOut'
-      });
-    }
   }, []);
 
   return (
-    <div ref={containerRef} className="relative mask-b-from-80% w-full min-h-[90vh] overflow-hidden bg-black flex flex-col items-center justify-center pt-32 pb-24 [perspective:1200px]">
+    <div ref={containerRef} className="relative mask-b-from-80% w-full min-h-[90vh] overflow-hidden bg-background flex flex-col items-center justify-center pt-32 pb-24 perspective-distant">
       <div className="absolute inset-0 z-0 mask-b-from-80%">
         <Hyperspeed
           effectOptions={{
@@ -80,37 +60,20 @@ const Hero = () => {
             }
           }}
         />
-        {/* Soft fade at the bottom to transition into the next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-background to-transparent z-10 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-6 md:px-12 w-full max-w-7xl mx-auto">
-        <div ref={textRef} className="space-y-6 flex flex-col items-start text-left lg:pr-8">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 md:px-12 w-full max-w-4xl mx-auto">
+        <div ref={textRef} className="space-y-6 flex flex-col items-center text-center">
           <div className="inline-block px-5 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white/90 text-sm font-semibold tracking-widest uppercase shadow-lg">
             Yasir Munir
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 font-montserrat pb-2 leading-tight">
-            Digital<br/>Marketing
+          <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-extrabold tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-white to-white/50 font-montserrat pb-2 leading-tight">
+            Portfolio
           </h1>
-          <p className="text-xl md:text-2xl text-neutral-300 font-inter font-light max-w-lg leading-relaxed">
+          <p className="text-xl md:text-2xl text-neutral-300 font-inter font-light max-w-xl leading-relaxed">
             Certified Digital Marketer specializing in Meta Ads, TikTok Ads, LinkedIn Optimization, and Google Business Profile.
           </p>
-        </div>
-
-        <div 
-          ref={imageRef} 
-          className="relative w-full max-w-2xl mb-24 mx-auto group [transform-style:preserve-3d]"
-        >
-          <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-square">
-            <Image
-              src="/case.webp"
-              alt="Case Studies Preview"
-              fill
-              priority
-              className="object-contain transition-transform duration-1000 group-hover:scale-105 drop-shadow-[0_20px_50px_rgba(100,50,255,0.4)]"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
         </div>
       </div>
     </div>

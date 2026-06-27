@@ -25,6 +25,7 @@
     "@react-bits": "https://reactbits.dev/r/{name}.json",
     "@aicanvas": "https://aicanvas.me/r/{name}.json",
     "@animate-ui": "https://animate-ui.com/r/{name}.json",
-    "@efferd": "https://efferd.com/r/{name}.json"
+    "@efferd": "https://efferd.com/r/{name}.json",
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
   }
 }

@@ -52,7 +52,7 @@ const Case = () => {
           subtitle="As a Performance Marketer at Developers Point Private Limited, I specialize in maximizing ROI through data-driven campaigns. By leveraging advanced Meta Ads and TikTok Ads strategies, I optimize conversion funnels and rapidly scale businesses in highly competitive markets. My approach focuses on precise targeting and continuous A/B testing to lower acquisition costs."
           tags={['Performance Marketing', 'Meta Ads', 'TikTok Ads', 'ROI Optimization']}
           images={designImages}
-          className="!bg-transparent h-full min-h-0"
+          className="bg-transparent! h-full min-h-0"
         />
       </div>
 
@@ -72,7 +72,7 @@ const Case = () => {
           subtitle="At Labbaik Real Estate and Looknice.store, I crafted tailored social media strategies to drive localized and global sales. From optimizing Google Business Profiles for maximum local visibility to executing high-converting e-commerce ad campaigns, I ensured consistent lead generation and revenue growth across vastly different industries."
           tags={['E-commerce', 'Lead Generation', 'LinkedIn Optimization', 'Google Business Profile']}
           images={motionImages}
-          className="!bg-transparent h-full min-h-0"
+          className="bg-transparent! h-full min-h-0"
         />
       </div>
     </div>

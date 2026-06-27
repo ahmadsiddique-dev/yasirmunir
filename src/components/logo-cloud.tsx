@@ -4,12 +4,12 @@ export function LogoCloud() {
 	return (
 		<div className="mask-[linear-gradient(to_right,transparent,black,transparent)] overflow-hidden py-4">
 			<InfiniteSlider gap={42} reverse speed={80} speedOnHover={25}>
-				{logos.map((logo) => (
+				{logos.map((logo, i) => (
 					<img
 						alt={logo.alt}
-						className="pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert"
+						className="pointer-events-none h-10 select-none md:h-15 dark:brightness-0 dark:invert"
 						height="auto"
-						key={`logo-${logo.alt}`}
+						key={`logo-${logo.alt}-${i}`}
 						loading="lazy"
 						src={logo.src}
 						width="auto"
@@ -22,35 +22,47 @@ export function LogoCloud() {
 
 const logos = [
 	{
-		src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
+		src: "/clogo/1.png",
 		alt: "Nvidia Logo",
 	},
 	{
-		src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
+		src: "/clogo/2.png",
 		alt: "Supabase Logo",
 	},
 	{
-		src: "https://storage.efferd.com/logo/openai-wordmark.svg",
+		src: "/clogo/3.png",
 		alt: "OpenAI Logo",
 	},
 	{
-		src: "https://storage.efferd.com/logo/turso-wordmark.svg",
+		src: "/clogo/4.png",
 		alt: "Turso Logo",
 	},
 	{
-		src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
+		src: "/clogo/5.png",
 		alt: "Vercel Logo",
 	},
 	{
-		src: "https://storage.efferd.com/logo/github-wordmark.svg",
+		src: "/clogo/6.png",
 		alt: "GitHub Logo",
 	},
 	{
-		src: "https://storage.efferd.com/logo/claude-wordmark.svg",
+		src: "/clogo/7.png",
 		alt: "Claude AI Logo",
 	},
 	{
-		src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
+		src: "/clogo/8.png",
+		alt: "Clerk Logo",
+	},
+	{
+		src: "/clogo/9.png",
+		alt: "Clerk Logo",
+	},
+	{
+		src: "/clogo/10.png",
+		alt: "Clerk Logo",
+	},
+	{
+		src: "/clogo/11.png",
 		alt: "Clerk Logo",
 	},
 ];

@@ -318,16 +318,15 @@ export function CinematicFooter() {
 
             {/* Interactive Magnetic Pills Layout */}
             <div ref={linksRef} className="flex flex-col items-center gap-6 w-full">
-              {/* Primary Actions */}
               <div className="flex flex-wrap justify-center gap-4 w-full">
-                <MagneticButton as="a" href="mailto:contact@yasirmunir.com" className="footer-glass-pill px-10 py-5 rounded-full text-foreground font-bold text-sm md:text-base flex items-center gap-3 group">
-                  <svg className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <MagneticButton as="a" href="https://www.facebook.com/yasirmunir0" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-10 py-5 rounded-full text-foreground font-bold text-sm md:text-base flex items-center gap-3 group">
+                  <svg className="w-[30px] h-[30px] text-muted-foreground group-hover:text-foreground transition-colors" viewBox="-5.5 0 32 32" fill="currentColor">
+                    <path d="M1.188 5.594h18.438c0.625 0 1.188 0.563 1.188 1.188v18.438c0 0.625-0.563 1.188-1.188 1.188h-18.438c-0.625 0-1.188-0.563-1.188-1.188v-18.438c0-0.625 0.563-1.188 1.188-1.188zM14.781 17.281h2.875l0.125-2.75h-3v-2.031c0-0.781 0.156-1.219 1.156-1.219h1.75l0.063-2.563s-0.781-0.125-1.906-0.125c-2.75 0-3.969 1.719-3.969 3.563v2.375h-2.031v2.75h2.031v7.625h2.906v-7.625z"></path>
                   </svg>
-                  Email Me
+                  Facebook
                 </MagneticButton>
                 
-                <MagneticButton as="a" href="#" className="footer-glass-pill px-10 py-5 rounded-full text-foreground font-bold text-sm md:text-base flex items-center gap-3 group">
+                <MagneticButton as="a" href="https://www.linkedin.com/in/yasir-munir-shikrani" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-10 py-5 rounded-full text-foreground font-bold text-sm md:text-base flex items-center gap-3 group">
                   <svg className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                   </svg>
@@ -335,16 +334,15 @@ export function CinematicFooter() {
                 </MagneticButton>
               </div>
 
-              {/* Secondary Text Links */}
               <div className="flex flex-wrap justify-center gap-3 md:gap-6 w-full mt-2">
-                <MagneticButton as="a" href="#" className="footer-glass-pill px-6 py-3 rounded-full text-muted-foreground font-medium text-xs md:text-sm hover:text-foreground">
+                <MagneticButton as="a" href="https://x.com/yasirshikrani56" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-6 py-3 rounded-full text-muted-foreground font-medium text-xs md:text-sm hover:text-foreground">
                   Twitter / X
                 </MagneticButton>
-                <MagneticButton as="a" href="#" className="footer-glass-pill px-6 py-3 rounded-full text-muted-foreground font-medium text-xs md:text-sm hover:text-foreground">
-                  GitHub
+                <MagneticButton as="a" href="https://www.tiktok.com/@yasir.munir.shikrani" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-6 py-3 rounded-full text-muted-foreground font-medium text-xs md:text-sm hover:text-foreground">
+                  Tiktok
                 </MagneticButton>
-                <MagneticButton as="a" href="#" className="footer-glass-pill px-6 py-3 rounded-full text-muted-foreground font-medium text-xs md:text-sm hover:text-foreground">
-                  Dribbble
+                <MagneticButton as="a" href="https://www.instagram.com/yasirmunirmarketer/" target="_blank" rel="noopener noreferrer" className="footer-glass-pill px-6 py-3 rounded-full text-muted-foreground font-medium text-xs md:text-sm hover:text-foreground">
+                  Instagram
                 </MagneticButton>
               </div>
             </div>
@@ -363,7 +361,7 @@ export function CinematicFooter() {
               <span className="text-muted-foreground text-[10px] md:text-xs font-bold uppercase tracking-widest">Crafted with</span>
               <span className=" text-sm md:text-base ">🤍</span>
               <span className="text-muted-foreground text-[10px] md:text-xs font-bold uppercase tracking-widest">by</span>
-              <span className=" text-destructive font-black text-xs md:text-sm tracking-normal ml-1 animate-footer-heartbeat">Ahmad Siddique</span>
+              <span className=" text-destructive font-black text-xs md:text-sm tracking-normal ml-1 animate-footer-heartbeat"><a target="_blank" href="https://ahmadsiddique.dev/">Ahmad Siddique</a></span>
             </div>
 
             {/* Back to top */}

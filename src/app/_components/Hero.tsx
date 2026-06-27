@@ -8,15 +8,15 @@ import TextPressure from "@/components/TextPressure";
 import { RadialIntro } from "@/components/animate-ui/components/community/radial-intro";
 
 const ITEMS = [
-  { id: 1, name: "Framer University", src: "./technos/logo1.png" },
-  { id: 2, name: "arhamkhnz", src: "./technos/logo2.png" },
-  { id: 3, name: "Skyleen", src: "./technos/logo3.png" },
-  { id: 4, name: "Shadcn", src: "./technos/logo4.png" },
-  { id: 5, name: "Adam Wathan", src: "./technos/logo5.png" },
-  { id: 6, name: "Guillermo Rauch", src: "./technos/logo6.png" },
-  { id: 7, name: "Jhey", src: "./technos/logo7.png" },
-  { id: 8, name: "David Haz", src: "./technos/logo8.png" },
-  { id: 9, name: "Matt Perry", src: "./technos/logo9.png" },
+  { id: 1, name: "facebook", src: "./technos/logo1.webp" },
+  { id: 2, name: "instagram", src: "./technos/logo2.webp" },
+  { id: 3, name: "X", src: "./technos/logo3.webp" },
+  { id: 4, name: "whatsapp", src: "./technos/logo4.webp" },
+  { id: 5, name: "telegram", src: "./technos/logo5.webp" },
+  { id: 6, name: "skype", src: "./technos/logo6.webp" },
+  { id: 7, name: "tiktok", src: "./technos/logo7.webp" },
+  { id: 8, name: "youtube", src: "./technos/logo8.webp" },
+  { id: 9, name: "Others", src: "./technos/logo9.webp" },
 ];
 
 const Hero = () => {

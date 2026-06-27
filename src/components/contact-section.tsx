@@ -1,10 +1,16 @@
+"use client";
+
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Field, FieldGroup, FieldLabel, FieldError } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MailIcon, PhoneIcon } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { contactSchema, type ContactFormData } from "@/schemas/contact";
 
 const contactInfo = [
 	{
@@ -55,42 +61,115 @@ export function ContactSection() {
 }
 
 function ContactForm() {
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [submitError, setSubmitError] = useState<string | null>(null);
+	const [submitSuccess, setSubmitSuccess] = useState(false);
+
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm<ContactFormData>({
+		resolver: zodResolver(contactSchema),
+	});
+
+	const onSubmit = async (data: ContactFormData) => {
+		setIsSubmitting(true);
+		setSubmitError(null);
+		setSubmitSuccess(false);
+
+		try {
+			const response = await fetch("/api/contact", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
+
+			const result = await response.json();
+
+			if (response.ok && result.success) {
+				setSubmitSuccess(true);
+				reset();
+				setTimeout(() => {
+					setSubmitSuccess(false);
+				}, 3500);
+			} else {
+				setSubmitError(result.message || "Something went wrong. Please try again.");
+			}
+		} catch (err) {
+			setSubmitError("Failed to submit contact form. Please try again.");
+		} finally {
+			setIsSubmitting(false);
+		}
+	};
+
 	return (
-		<form className="w-full">
+		<form className="w-full" onSubmit={handleSubmit(onSubmit)}>
 			<FieldGroup>
-				<Field>
+				<Field data-invalid={!!errors.fullname}>
 					<FieldLabel htmlFor="full-name">Full name</FieldLabel>
-					<Input autoComplete="off" id="full-name" placeholder="John Doe" />
+					<Input 
+						autoComplete="off" 
+						id="full-name" 
+						placeholder="John Doe" 
+						{...register("fullname")}
+					/>
+					{errors.fullname && <FieldError>{errors.fullname.message}</FieldError>}
 				</Field>
-				<Field>
+				<Field data-invalid={!!errors.email}>
 					<FieldLabel htmlFor="email">Email</FieldLabel>
 					<Input
 						autoComplete="off"
 						id="email"
 						placeholder="johndoe@example.com"
 						type="email"
+						{...register("email")}
 					/>
+					{errors.email && <FieldError>{errors.email.message}</FieldError>}
 				</Field>
-				<Field>
+				<Field data-invalid={!!errors.phonenumber}>
 					<FieldLabel htmlFor="phone">Phone</FieldLabel>
 					<Input
 						autoComplete="off"
 						id="phone"
 						placeholder="+1 (555) 123-4567"
 						type="tel"
+						{...register("phonenumber")}
 					/>
+					{errors.phonenumber && <FieldError>{errors.phonenumber.message}</FieldError>}
 				</Field>
-				<Field>
+				<Field data-invalid={!!errors.message}>
 					<FieldLabel htmlFor="message">Message</FieldLabel>
 					<Textarea
 						autoComplete="off"
 						id="message"
 						placeholder="Your message"
+						{...register("message")}
 					/>
+					{errors.message && <FieldError>{errors.message.message}</FieldError>}
 				</Field>
 			</FieldGroup>
-			<Button className="mt-8 w-full" type="button">
-				Submit
+
+			{submitError && (
+				<div className="mt-4 text-sm text-destructive font-medium text-center">
+					{submitError}
+				</div>
+			)}
+
+			{submitSuccess && (
+				<div className="mt-4 flex items-center gap-2.5 p-3 rounded-lg border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-sm font-medium">
+					<svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+						<path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+					</svg>
+					<span>Thank you! Your message has been sent successfully.</span>
+				</div>
+			)}
+
+			<Button className="mt-8 w-full" type="submit" disabled={isSubmitting}>
+				{isSubmitting ? "Submitting..." : "Submit"}
 			</Button>
 		</form>
 	);
