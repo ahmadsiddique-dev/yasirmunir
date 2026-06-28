@@ -9,7 +9,8 @@ import { List, X } from "@phosphor-icons/react";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  { label: "Journey", href: "/case-study" }
+  { label: "About", href: "/about" },
+  { label: "Experience", href: "/case-study" }
 ];
 
 const MotionLink = motion(Link);

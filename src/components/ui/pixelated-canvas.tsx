@@ -123,8 +123,25 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
       const dpr =
         typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
 
-      const displayWidth = width ?? img.naturalWidth;
-      const displayHeight = height ?? img.naturalHeight;
+      let displayWidth = width ?? img.naturalWidth;
+      let displayHeight = height ?? img.naturalHeight;
+
+      if (responsive && canvas.parentElement) {
+        const parentWidth = canvas.parentElement.clientWidth;
+        if (parentWidth > 0) {
+          displayWidth = parentWidth;
+          if (typeof window !== "undefined") {
+            if (window.innerWidth < 768) {
+              displayHeight = Math.floor(window.innerHeight * 0.65);
+            } else {
+              displayHeight = window.innerHeight;
+            }
+          } else {
+            const aspect = (height && width) ? (height / width) : (img.naturalHeight / img.naturalWidth);
+            displayHeight = Math.floor(displayWidth * aspect);
+          }
+        }
+      }
 
       canvas.width = Math.max(1, Math.floor(displayWidth * dpr));
       canvas.height = Math.max(1, Math.floor(displayHeight * dpr));
@@ -159,7 +176,11 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
         const scale = Math.max(displayWidth / iw, displayHeight / ih);
         dw = Math.ceil(iw * scale);
         dh = Math.ceil(ih * scale);
-        dx = Math.floor((displayWidth - dw) / 2);
+        if (typeof window !== "undefined" && window.innerWidth < 768) {
+          dx = displayWidth - dw;
+        } else {
+          dx = Math.floor((displayWidth - dw) / 2);
+        }
         dy = Math.floor((displayHeight - dh) / 2);
       } else if (objectFit === "contain") {
         const scale = Math.min(displayWidth / iw, displayHeight / ih);
@@ -505,16 +526,24 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
       console.error("Failed to load image for PixelatedCanvas:", src);
     };
 
-    if (responsive) {
-      const onResize = () => {
+    if (responsive && canvas.parentElement) {
+      let lastWidth = canvas.parentElement.clientWidth;
+      const handleResize = () => {
         if (img.complete && img.naturalWidth) {
           compute();
         }
       };
-      window.addEventListener("resize", onResize);
+      const resizeObserver = new ResizeObserver(() => {
+        const currentWidth = canvas.parentElement?.clientWidth || 0;
+        if (currentWidth !== lastWidth) {
+          lastWidth = currentWidth;
+          handleResize();
+        }
+      });
+      resizeObserver.observe(canvas.parentElement);
       return () => {
         isCancelled = true;
-        window.removeEventListener("resize", onResize);
+        resizeObserver.disconnect();
         if ((img as any)._cleanup) (img as any)._cleanup();
       };
     }
