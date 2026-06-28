@@ -3,76 +3,108 @@ import { HeroSection } from '@/components/ui/feature-carousel';
 
 const Case = () => {
   const creativeImages = [
-    { src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop', alt: 'Abstract 3D Render' },
-    { src: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop', alt: 'Cyberpunk setup' },
-    { src: 'https://images.unsplash.com/photo-1614729939124-03290b56c9ce?q=80&w=1000&auto=format&fit=crop', alt: 'Space abstract' },
-    { src: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1000&auto=format&fit=crop', alt: 'Gradient fluid' },
-    { src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop', alt: 'Technology circuit' },
+    { src: '/zavia/image2.webp', alt: 'Abstract 3D Render' },
+    { src: '/zavia/image3.webp', alt: 'Space abstract' },
+    { src: '/zavia/image4.webp', alt: 'Gradient fluid' },
+    { src: '/zavia/image5.webp', alt: 'Technology circuit' },
   ];
 
   const designImages = [
-    { src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000&auto=format&fit=crop', alt: 'Minimalist website UI' },
-    { src: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1000&auto=format&fit=crop', alt: 'Wireframes on paper' },
-    { src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop', alt: 'Design system elements' },
-    { src: 'https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=1000&auto=format&fit=crop', alt: 'Clean workspace' },
-    { src: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000&auto=format&fit=crop', alt: 'Typography layout' },
+    { src: '/sales/1.webp', alt: 'Minimalist website UI' },
+    { src: '/sales/2.webp', alt: 'Wireframes on paper' },
+    { src: '/sales/3.webp', alt: 'Design system elements' },
+    { src: '/sales/4.webp', alt: 'Clean workspace' },
   ];
 
   const performanceImages = [
-    { src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop', alt: 'Data analytics dashboard' },
-    { src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop', alt: 'Server racks' },
-    { src: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop', alt: 'Performance graphs' },
-    { src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop', alt: 'Matrix code' },
-    { src: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=1000&auto=format&fit=crop', alt: 'High speed lights' },
+    { src: '/leads/1.webp', alt: 'Data analytics dashboard' },
+    { src: '/leads/2.webp', alt: 'Server racks' },
+    { src: '/leads/3.webp', alt: 'Matrix code' },
+    { src: '/leads/4.webp', alt: 'Performance graphs' },
   ];
 
   const motionImages = [
-    { src: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop', alt: 'Light trails motion' },
-    { src: 'https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?q=80&w=1000&auto=format&fit=crop', alt: 'Abstract shapes' },
-    { src: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1000&auto=format&fit=crop', alt: 'Fluid art' },
-    { src: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop', alt: 'Dynamic colors' },
-    { src: 'https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=1000&auto=format&fit=crop', alt: 'Vibrant waves' },
+    { src: '/awareness/1.webp', alt: 'Light trails motion' },
+    { src: '/awareness/2.webp', alt: 'Abstract shapes' },
+    { src: '/awareness/3.webp', alt: 'Fluid art' },
+    { src: '/awareness/4.webp', alt: 'Dynamic colors' },
   ];
 
   return (
     <div className="w-full relative">
-      <div className="bg-background sticky top-0 h-screen overflow-hidden shadow-2xl">
+      <div className="bg-background md:sticky md:top-0 md:h-screen md:overflow-hidden shadow-2xl">
         <HeroSection
-          title={<>Creative & Strategic Social Media</>}
-          subtitle="At Qazi Sami Production, Yasir brings brands to life through creative and strategic social media marketing. From crafting engaging content to running targeted ad campaigns, he focuses on building a strong online presence that connects with the right audience. He handles everything from content planning and community engagement to analytics and optimization, ensuring maximum reach and impact."
+          title={<>Business Pages Yasir Has Helped Grow</>}
+          subtitle={
+            <div className="space-y-4">
+              <p>
+                A successful social media presence is built on <span className="text-primary font-semibold">consistency, strategy, and understanding the audience</span>. Over the years, Yasir has managed business pages across multiple industries, helping brands increase their reach, engagement, and overall online visibility.
+              </p>
+              <p>
+                The screenshots below showcase the <span className="text-primary font-semibold">organic and paid growth</span> achieved for different businesses through well-planned content and <span className="text-primary font-semibold">performance-driven marketing</span>.
+              </p>
+            </div>
+          }
           tags={['Social Media Strategy', 'Social Marketing', 'Content Planning']}
           images={creativeImages}
-          className="h-full min-h-0"
+          className="md:h-full md:min-h-0"
         />
       </div>
       
-      <div className="bg-muted sticky top-0 h-screen overflow-hidden shadow-2xl">
+      <div className="bg-muted md:sticky md:top-0 md:h-screen md:overflow-hidden shadow-2xl">
         <HeroSection
-          title={<>Performance Marketing & Ads</>}
-          subtitle="As a Performance Marketer at Developers Point Private Limited, Yasir specializes in maximizing ROI through data-driven campaigns. By leveraging advanced Meta Ads and TikTok Ads strategies, he optimizes conversion funnels and rapidly scales businesses in highly competitive markets. His approach focuses on precise targeting and continuous A/B testing to lower acquisition costs."
+          title={<>E-commerce Sales & High-Performing ROAS Campaigns</>}
+          subtitle={
+            <div className="space-y-4">
+              <p>
+                Generating sales is not about spending more. It is about <span className="text-primary font-semibold">spending smarter</span>. Yasir has managed Shopify and Meta Ads campaigns for both national and international e-commerce brands, focusing on <span className="text-primary font-semibold">profitable customer acquisition</span> and sustainable business growth.
+              </p>
+              <p>
+                The campaign results below highlight <span className="text-primary font-semibold">strong ROAS</span>, consistent sales performance, and <span className="text-primary font-semibold">data-driven strategies</span> that helped businesses scale with confidence.
+              </p>
+            </div>
+          }
           tags={['Performance Marketing', 'Meta Ads', 'TikTok Ads', 'ROI Optimization']}
           images={designImages}
-          className="bg-transparent! h-full min-h-0"
+          className="bg-transparent! md:h-full md:min-h-0"
         />
       </div>
 
-      <div className="bg-background sticky top-0 h-screen overflow-hidden shadow-2xl">
+      <div className="bg-background md:sticky md:top-0 md:h-screen md:overflow-hidden shadow-2xl">
         <HeroSection
-          title={<>Brand Building & Community Management</>}
-          subtitle="During his tenure as Social Media Marketing Manager at Digital Titan, Yasir spearheaded comprehensive digital growth strategies. His focus was on establishing authoritative brand voices, driving community engagement, and translating social metrics into actionable business intelligence. With a keen eye on digital trends, he helps brands make a lasting impression in the online world."
+          title={<>Lead Generation Campaign Results</>}
+          subtitle={
+            <div className="space-y-4">
+              <p>
+                Every <span className="text-primary font-semibold">qualified lead</span> has the potential to become a loyal customer. Yasir has successfully planned and managed lead generation campaigns for service-based businesses across multiple industries, helping them attract <span className="text-primary font-semibold">high-quality inquiries</span> through Meta Ads.
+              </p>
+              <p>
+                The screenshots below represent <span className="text-primary font-semibold">real campaign performance</span>, delivering quality leads that supported business growth while maintaining <span className="text-primary font-semibold">cost-effective acquisition</span>.
+              </p>
+            </div>
+          }
           tags={['Brand Strategy', 'Community Engagement', 'Analytics', 'Growth Hacking']}
           images={performanceImages}
-          className="h-full min-h-0"
+          className="md:h-full md:min-h-0"
         />
       </div>
 
-      <div className="bg-muted sticky top-0 h-screen overflow-hidden">
+      <div className="bg-muted md:sticky md:top-0 md:h-screen md:overflow-hidden">
         <HeroSection
-          title={<>E-commerce & Real Estate Scaling</>}
-          subtitle="At Labbaik Real Estate and Looknice.store, Yasir crafted tailored social media strategies to drive localized and global sales. From optimizing Google Business Profiles for maximum local visibility to executing high-converting e-commerce ad campaigns, he ensured consistent lead generation and revenue growth across vastly different industries."
+          title={<>Brand Awareness</>}
+          subtitle={
+            <div className="space-y-4">
+              <p>
+                Launching a new business is only half the challenge. The other half is <span className="text-primary font-semibold">making people aware of it</span>. Yasir has helped new businesses introduce their brands to local audiences through <span className="text-primary font-semibold">highly targeted awareness campaigns</span>.
+              </p>
+              <p>
+                These campaigns created excitement before launch, <span className="text-primary font-semibold">increased local visibility</span>, and encouraged people to visit during opening events and promotional offers. The results below demonstrate how strategic awareness campaigns <span className="text-primary font-semibold">turned online attention into real customer visits</span>.
+              </p>
+            </div>
+          }
           tags={['E-commerce', 'Lead Generation', 'LinkedIn Optimization', 'Google Business Profile']}
           images={motionImages}
-          className="bg-transparent! h-full min-h-0"
+          className="bg-transparent! md:h-full md:min-h-0"
         />
       </div>
     </div>

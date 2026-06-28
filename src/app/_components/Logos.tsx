@@ -6,9 +6,9 @@ const Logos = () => {
     <div id="clients" className="my-30 pt-8 md:pt-0 sm:my-30 w-full place-content-center">
       <ScrollReveal childSelector=".reveal-item" className="relative mx-auto max-w-3xl">
         <h2 className="reveal-item mb-5 text-center font-medium text-foreground text-xl tracking-tight md:text-3xl">
-          <span className="text-muted-foreground">Trusted by experts.</span>
+          <span className="text-muted-foreground">Trusted by Experts</span>
           <br />
-          <span className="font-semibold">Used by the leaders.</span>
+          <span className="font-semibold">Partnered with Well known Businesses</span>
         </h2>
         <div className="reveal-item mask-[linear-gradient(to_right,transparent,black,transparent)] mx-auto my-5 h-px max-w-sm bg-border" />
         <div className="reveal-item">

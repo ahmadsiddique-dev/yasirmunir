@@ -120,7 +120,7 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroProps>(
                     key={index}
                     className={cn(
                       'absolute w-64 h-40 md:w-[450px] md:h-[280px] lg:w-[500px] lg:h-[310px] transition-all duration-700 ease-out',
-                      'flex items-center justify-center'
+                      'flex items-center justify-center rounded-[18px] border border-foreground/10 overflow-hidden bg-neutral-900/40 dark:bg-white/5 backdrop-blur-md'
                     )}
                     style={{
                       transform: `
@@ -140,7 +140,7 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroProps>(
                       alt={image.alt}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover rounded-[18px] border border-foreground/10"
+                      className="object-contain"
                     />
                   </div>
                 );
