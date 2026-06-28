@@ -61,6 +61,22 @@ export default function AboutPage() {
         },
       );
 
+      gsap.fromTo(
+        ".intro-content p",
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: introRef.current,
+            start: "top 75%",
+          },
+        },
+      );
+
       mm.add("(min-width: 768px)", () => {
         const slides = gsap.utils.toArray(".horizontal-slide") as HTMLElement[];
         const amountToScroll = (100 * (slides.length - 1)) / slides.length;
@@ -111,58 +127,63 @@ export default function AboutPage() {
 
             if (heading && isA) {
               const chars = heading.querySelectorAll(".split-char");
-              gsap.fromTo(
-                chars,
-                { opacity: 0, y: 50, rotate: -10, scale: 0.8 },
-                {
-                  opacity: 1,
-                  y: 0,
-                  rotate: 0,
-                  scale: 1,
-                  ease: "back.out(2)",
-                  stagger: 0.03,
-                  scrollTrigger: {
-                    trigger: slide,
-                    containerAnimation: horizontalTimeline,
-                    start: "left 70%",
-                    once: true,
+              if (chars.length > 0) {
+                gsap.fromTo(
+                  chars,
+                  { opacity: 0, y: 50, rotate: -10, scale: 0.8 },
+                  {
+                    opacity: 1,
+                    y: 0,
+                    rotate: 0,
+                    scale: 1,
+                    ease: "back.out(2)",
+                    stagger: 0.03,
+                    scrollTrigger: {
+                      trigger: slide,
+                      containerAnimation: horizontalTimeline,
+                      start: "left 70%",
+                      once: true,
+                    },
                   },
-                },
-              );
+                );
+              }
             }
 
             if (heading && isB) {
               const chars = heading.querySelectorAll(".split-char");
-              gsap.fromTo(
-                chars,
-                { opacity: 0, filter: "blur(12px)", scale: 0.9, y: 20 },
-                {
-                  opacity: 1,
-                  filter: "blur(0px)",
-                  scale: 1,
-                  y: 0,
-                  ease: "power2.out",
-                  stagger: 0.025,
-                  scrollTrigger: {
-                    trigger: slide,
-                    containerAnimation: horizontalTimeline,
-                    start: "left 70%",
-                    once: true,
+              if (chars.length > 0) {
+                gsap.fromTo(
+                  chars,
+                  { opacity: 0, filter: "blur(12px)", scale: 0.9, y: 20 },
+                  {
+                    opacity: 1,
+                    filter: "blur(0px)",
+                    scale: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    stagger: 0.025,
+                    scrollTrigger: {
+                      trigger: slide,
+                      containerAnimation: horizontalTimeline,
+                      start: "left 70%",
+                      once: true,
+                    },
                   },
-                },
-              );
+                );
+              }
             }
 
-            if (paragraph) {
-              const words = paragraph.querySelectorAll(".split-word");
+            const paragraphs = content.querySelectorAll("p");
+            if (paragraphs.length) {
               gsap.fromTo(
-                words,
-                { opacity: 0, y: 5 },
+                paragraphs,
+                { opacity: 0, y: 15 },
                 {
                   opacity: 1,
                   y: 0,
-                  ease: "power1.out",
-                  stagger: 0.015,
+                  duration: 0.6,
+                  stagger: 0.15,
+                  ease: "power2.out",
                   scrollTrigger: {
                     trigger: slide,
                     containerAnimation: horizontalTimeline,
@@ -224,56 +245,61 @@ export default function AboutPage() {
 
           if (heading && isA) {
             const chars = heading.querySelectorAll(".split-char");
-            gsap.fromTo(
-              chars,
-              { opacity: 0, y: 50, rotate: -10, scale: 0.8 },
-              {
-                opacity: 1,
-                y: 0,
-                rotate: 0,
-                scale: 1,
-                ease: "back.out(2)",
-                stagger: 0.02,
-                scrollTrigger: {
-                  trigger: slide,
-                  start: "top 80%",
-                  once: true,
+            if (chars.length > 0) {
+              gsap.fromTo(
+                chars,
+                { opacity: 0, y: 50, rotate: -10, scale: 0.8 },
+                {
+                  opacity: 1,
+                  y: 0,
+                  rotate: 0,
+                  scale: 1,
+                  ease: "back.out(2)",
+                  stagger: 0.02,
+                  scrollTrigger: {
+                    trigger: slide,
+                    start: "top 80%",
+                    once: true,
+                  },
                 },
-              },
-            );
+              );
+            }
           }
 
           if (heading && isB) {
             const chars = heading.querySelectorAll(".split-char");
-            gsap.fromTo(
-              chars,
-              { opacity: 0, filter: "blur(12px)", scale: 0.9, y: 20 },
-              {
-                opacity: 1,
-                filter: "blur(0px)",
-                scale: 1,
-                y: 0,
-                ease: "power2.out",
-                stagger: 0.015,
-                scrollTrigger: {
-                  trigger: slide,
-                  start: "top 80%",
-                  once: true,
+            if (chars.length > 0) {
+              gsap.fromTo(
+                chars,
+                { opacity: 0, filter: "blur(12px)", scale: 0.9, y: 20 },
+                {
+                  opacity: 1,
+                  filter: "blur(0px)",
+                  scale: 1,
+                  y: 0,
+                  ease: "power2.out",
+                  stagger: 0.015,
+                  scrollTrigger: {
+                    trigger: slide,
+                    start: "top 80%",
+                    once: true,
+                  },
                 },
-              },
-            );
+              );
+            }
           }
 
-          if (paragraph) {
-            const words = paragraph.querySelectorAll(".split-word");
+          const paragraphs = slide.querySelectorAll("p");
+          if (paragraphs.length) {
             gsap.fromTo(
-              words,
-              { opacity: 0, y: 5 },
+              paragraphs,
+              { opacity: 0, y: 15 },
               {
                 opacity: 1,
                 y: 0,
-                ease: "power1.out",
-                stagger: 0.01,
+                duration: 0.6,
+                stagger: 0.15,
+                ease: "power2.out",
                 scrollTrigger: {
                   trigger: slide,
                   start: "top 75%",
@@ -332,6 +358,22 @@ export default function AboutPage() {
         },
       );
 
+      gsap.fromTo(
+        ".consultation-content p",
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: consultationRef.current,
+            start: "top 70%",
+          },
+        },
+      );
+
       return () => {
         mm.revert();
       };
@@ -340,10 +382,10 @@ export default function AboutPage() {
   );
 
   return (
-    <div ref={containerRef} className="w-full bg-[#000000] text-white overflow-x-hidden">
+    <div ref={containerRef} className="w-full bg-background text-foreground overflow-x-hidden">
       <div
         ref={heroRef}
-        className="relative w-full h-[65vh] md:h-screen overflow-hidden bg-[#000000]"
+        className="relative w-full h-[65vh] md:h-screen overflow-hidden bg-background"
       >
         <div ref={heroCanvasWrapperRef} className="w-full h-full relative">
           <PixelatedCanvas
@@ -354,7 +396,7 @@ export default function AboutPage() {
             cellSize={4}
             dotScale={0.9}
             shape="square"
-            backgroundColor="#000000"
+            backgroundColor="#090D16"
             dropoutStrength={0.1}
             interactive
             distortionStrength={0.1}
@@ -366,14 +408,14 @@ export default function AboutPage() {
             sampleAverage
             className="w-full h-full"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-[#000000] via-[#000000]/30 to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent pointer-events-none z-10" />
         </div>
         <div
           ref={heroTextRef}
           className="absolute inset-0 flex flex-col justify-end p-6 md:p-16 pb-16 md:pb-24 pointer-events-none z-20 select-none"
         >
           <div className="max-w-4xl relative z-20">
-            <span className="text-[#2997ff] text-xs md:text-sm font-semibold tracking-[0.2em] uppercase block mb-3 md:mb-4">
+            <span className="text-primary text-xs md:text-sm font-semibold tracking-[0.2em] uppercase block mb-3 md:mb-4">
               Digital Architect
             </span>
             <SplitText
@@ -406,12 +448,12 @@ export default function AboutPage() {
 
       <section
         ref={introRef}
-        className="bg-[#1d1d1f] py-20 md:py-32 px-6 md:px-16 lg:px-24"
+        className="bg-card/50 py-20 md:py-32 px-6 md:px-16 lg:px-24"
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
             <div className="intro-content">
-              <span className="text-[#2997ff] text-xs md:text-sm font-semibold tracking-[0.15em] uppercase block mb-3">
+              <span className="text-primary text-xs md:text-sm font-semibold tracking-[0.15em] uppercase block mb-3">
                 The Journey
               </span>
               <SplitText
@@ -426,18 +468,17 @@ export default function AboutPage() {
                 from={{ opacity: 0, y: 50, rotate: -10, scale: 0.8 }}
                 to={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
               />
-              <SplitText
-                text="I'm Yasir Munir, a Digital Marketer who believes that real marketing is about solving business problems, not just running ads. My journey started at the age of 16, when I became curious about how businesses grow online. While continuing my studies, I spent countless hours learning digital marketing, testing different strategies, and improving my skills through practical work. What started as curiosity slowly turned into a profession that I genuinely enjoy. Today, after years of continuous learning and hands-on experience, my focus is simple: helping businesses generate better leads, improve their online presence, and achieve measurable growth through the right marketing strategies."
-                className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]"
-                tag="p"
-                textAlign="left"
-                splitType="words"
-                duration={0.3}
-                delay={15}
-                ease="power1.out"
-                from={{ opacity: 0, y: 5 }}
-                to={{ opacity: 1, y: 0 }}
-              />
+              <div className="space-y-4">
+                <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
+                  He is <span className="text-primary font-semibold">Yasir Munir</span>, a results-driven <span className="text-primary font-semibold">Digital Marketer</span> who believes that real marketing is about solving core business problems, not just running generic ads.
+                </p>
+                <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
+                  His journey started at the <span className="text-[#2997ff] font-medium">age of 16</span>, sparked by a curiosity about how businesses grow online. While continuing his studies, he invested countless hours testing strategies and mastering the digital space through hands-on work.
+                </p>
+                <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
+                  Today, with years of continuous learning, his focus remains simple: helping businesses <span className="text-primary font-semibold">generate high-quality leads</span>, enhance their online authority, and achieve <span className="text-primary font-semibold">measurable revenue growth</span>.
+                </p>
+              </div>
             </div>
             <div className="intro-image">
               <div className="relative overflow-hidden rounded-2xl border border-white/5 shadow-[0_5px_30px_rgba(0,0,0,0.22)]">
@@ -456,13 +497,13 @@ export default function AboutPage() {
 
       <div
         ref={horizontalRef}
-        className="w-full md:h-screen md:overflow-hidden relative bg-black"
+        className="w-full md:h-screen md:overflow-hidden relative bg-background"
       >
         <div
           ref={horizontalSlidesRef}
           className="flex flex-col md:flex-row md:flex-nowrap w-full md:w-[200vw] h-full"
         >
-          <div className="horizontal-slide slide-a w-full md:w-screen md:h-full md:shrink-0 flex items-center py-20 md:py-32 px-6 md:px-16 lg:px-24 bg-[#0a0a0c]">
+          <div className="horizontal-slide slide-a w-full md:w-screen md:h-full md:shrink-0 flex items-center py-20 md:py-32 px-6 md:px-16 lg:px-24 bg-background">
             <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
               <div className="order-2 md:order-1">
                 <div className="relative overflow-hidden rounded-2xl border border-white/5 shadow-[0_5px_30px_rgba(0,0,0,0.22)]">
@@ -476,7 +517,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="slide-content order-1 md:order-2">
-                <span className="text-[#2997ff] text-xs md:text-sm font-semibold tracking-[0.15em] uppercase block mb-3">
+                <span className="text-primary text-xs md:text-sm font-semibold tracking-[0.15em] uppercase block mb-3">
                   The Methodology
                 </span>
                 <SplitText
@@ -487,22 +528,22 @@ export default function AboutPage() {
                   splitType="chars"
                   scrollTrigger={null}
                 />
-                <SplitText
-                  text="Every business has different challenges, and there is no one-size-fits-all marketing strategy. With 5+ years of practical experience, I have worked with 120+ clients across 26+ different industries, which has given me the ability to understand different business models and customer behaviors. Instead of applying generic solutions, I first understand your business, identify the real problem, and then build a strategy based on your goals. Whether your objective is generating leads, increasing sales, or building a stronger brand, every decision is backed by practical experience and real-world testing—not guesswork."
-                  className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]"
-                  tag="p"
-                  textAlign="left"
-                  splitType="words"
-                  scrollTrigger={null}
-                />
+                <div className="space-y-4">
+                  <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
+                    Every business faces unique challenges, and there is no one-size-fits-all formula. With <span className="text-[#2997ff] font-medium">5+ years of experience</span>, Yasir has worked with <span className="text-[#2997ff] font-medium">120+ clients</span> across <span className="text-[#2997ff] font-medium">26+ industries</span>, mastering diverse business models and consumer behaviors.
+                  </p>
+                  <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
+                    Instead of applying generic templates, he dives deep to identify your business's core bottleneck before crafting a custom roadmap. Whether the goal is <span className="text-primary font-semibold">scaling sales</span>, <span className="text-primary font-semibold">generating premium leads</span>, or <span className="text-primary font-semibold">strengthening brand authority</span>, every decision is backed by real-world testing—not guesswork.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="horizontal-slide slide-b w-full md:w-screen md:h-full md:shrink-0 flex items-center py-20 md:py-32 px-6 md:px-16 lg:px-24 bg-[#1d1d1f]">
+          <div className="horizontal-slide slide-b w-full md:w-screen md:h-full md:shrink-0 flex items-center py-20 md:py-32 px-6 md:px-16 lg:px-24 bg-card/50">
             <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
               <div className="slide-content">
-                <span className="text-[#2997ff] text-xs md:text-sm font-semibold tracking-[0.15em] uppercase block mb-3">
+                <span className="text-primary text-xs md:text-sm font-semibold tracking-[0.15em] uppercase block mb-3">
                   The Evidence
                 </span>
                 <SplitText
@@ -513,14 +554,14 @@ export default function AboutPage() {
                   splitType="chars"
                   scrollTrigger={null}
                 />
-                <SplitText
-                  text="Results speak louder than promises. In the Portfolio section of this website, you'll find screenshots of some of the campaigns and projects I've worked on over the years. However, you may notice that not every campaign is publicly displayed. That's because I highly respect my clients' privacy and confidentiality. Many projects involve sensitive business data that cannot be shared publicly. The portfolio you see is only a small glimpse of my work, carefully selected to demonstrate the quality of my experience while protecting the trust my clients have placed in me."
-                  className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]"
-                  tag="p"
-                  textAlign="left"
-                  splitType="words"
-                  scrollTrigger={null}
-                />
+                <div className="space-y-4">
+                  <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
+                    Results speak louder than promises. While you can browse some of his campaigns in the portfolio, you will notice that not every project is publicly shown. Yasir holds <span className="text-[#2997ff] font-medium">client privacy and confidentiality</span> in the highest regard.
+                  </p>
+                  <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
+                    Because many campaigns handle sensitive revenue and business data, the public portfolio is a curated glimpse designed to show the <span className="text-primary font-semibold">caliber of his work</span> while fully protecting client trust.
+                  </p>
+                </div>
               </div>
               <div>
                 <div className="relative overflow-hidden rounded-2xl border border-white/5 shadow-[0_5px_30px_rgba(0,0,0,0.22)]">
@@ -540,7 +581,7 @@ export default function AboutPage() {
 
       <section
         ref={consultationRef}
-        className="bg-[#0a0a0c] py-20 md:py-32 px-6 md:px-16 lg:px-24"
+        className="bg-background py-20 md:py-32 px-6 md:px-16 lg:px-24"
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
@@ -556,7 +597,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="consultation-content order-1 md:order-2">
-              <span className="text-[#2997ff] text-xs md:text-sm font-semibold tracking-[0.15em] uppercase block mb-3">
+              <span className="text-primary text-xs md:text-sm font-semibold tracking-[0.15em] uppercase block mb-3">
                 The Opportunity
               </span>
               <SplitText
@@ -571,22 +612,18 @@ export default function AboutPage() {
                 from={{ opacity: 0, filter: "blur(12px)", scale: 0.9, y: 20 }}
                 to={{ opacity: 1, filter: "blur(0px)", scale: 1, y: 0 }}
               />
-              <SplitText
-                text="To help business owners make informed marketing decisions, I offer five free 30-minute consultation sessions every month. Once those five slots are filled, consultations become paid for the rest of the month. If you'd like to secure a free session, simply fill out the contact form at the beginning of the month and mention 'Free Consultation' in your message. It will also help if you briefly describe your business, your current marketing situation, and the challenges you're facing. This allows me to understand your business before our meeting and provide more practical, actionable advice during the consultation."
-                className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px] mb-8"
-                tag="p"
-                textAlign="left"
-                splitType="words"
-                duration={0.3}
-                delay={15}
-                ease="power1.out"
-                from={{ opacity: 0, y: 5 }}
-                to={{ opacity: 1, y: 0 }}
-              />
+              <div className="space-y-4 mb-8">
+                <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
+                  To help business owners make informed choices, Yasir offers <span className="text-[#2997ff] font-medium">five free 30-minute consultation sessions</span> each month. Once these slots are filled, sessions transition to paid for the remainder of the month.
+                </p>
+                <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
+                  To secure your slot, fill out the contact form early in the month and specify <span className="text-primary font-semibold">'Free Consultation'</span>. Briefly describing your business and current hurdles allows him to prepare actionable insights specifically tailored for your session.
+                </p>
+              </div>
               <div>
                 <a
                   href="/#contact"
-                  className="consultation-btn inline-block bg-[#0066cc] hover:bg-[#0071e3] text-white text-[17px] px-8 py-3.5 rounded-full transition-all duration-200 active:scale-95"
+                  className="consultation-btn inline-block bg-primary hover:bg-primary/90 text-primary-foreground text-[17px] px-8 py-3.5 rounded-full transition-all duration-200 active:scale-95 shadow-lg shadow-primary/20 hover:shadow-primary/45"
                 >
                   Book Your Free Session
                 </a>

@@ -39,7 +39,7 @@ const Case = () => {
       <div className="bg-background sticky top-0 h-screen overflow-hidden shadow-2xl">
         <HeroSection
           title={<>Creative & Strategic Social Media</>}
-          subtitle="At Qazi Sami Production, I bring brands to life through creative and strategic social media marketing. From crafting engaging content to running targeted ad campaigns, I focus on building a strong online presence that connects with the right audience. I handle everything from content planning and community engagement to analytics and optimization, ensuring maximum reach and impact."
+          subtitle="At Qazi Sami Production, Yasir brings brands to life through creative and strategic social media marketing. From crafting engaging content to running targeted ad campaigns, he focuses on building a strong online presence that connects with the right audience. He handles everything from content planning and community engagement to analytics and optimization, ensuring maximum reach and impact."
           tags={['Social Media Strategy', 'Social Marketing', 'Content Planning']}
           images={creativeImages}
           className="h-full min-h-0"
@@ -49,7 +49,7 @@ const Case = () => {
       <div className="bg-muted sticky top-0 h-screen overflow-hidden shadow-2xl">
         <HeroSection
           title={<>Performance Marketing & Ads</>}
-          subtitle="As a Performance Marketer at Developers Point Private Limited, I specialize in maximizing ROI through data-driven campaigns. By leveraging advanced Meta Ads and TikTok Ads strategies, I optimize conversion funnels and rapidly scale businesses in highly competitive markets. My approach focuses on precise targeting and continuous A/B testing to lower acquisition costs."
+          subtitle="As a Performance Marketer at Developers Point Private Limited, Yasir specializes in maximizing ROI through data-driven campaigns. By leveraging advanced Meta Ads and TikTok Ads strategies, he optimizes conversion funnels and rapidly scales businesses in highly competitive markets. His approach focuses on precise targeting and continuous A/B testing to lower acquisition costs."
           tags={['Performance Marketing', 'Meta Ads', 'TikTok Ads', 'ROI Optimization']}
           images={designImages}
           className="bg-transparent! h-full min-h-0"
@@ -59,7 +59,7 @@ const Case = () => {
       <div className="bg-background sticky top-0 h-screen overflow-hidden shadow-2xl">
         <HeroSection
           title={<>Brand Building & Community Management</>}
-          subtitle="During my tenure as Social Media Marketing Manager at Digital Titan, I spearheaded comprehensive digital growth strategies. My focus was on establishing authoritative brand voices, driving community engagement, and translating social metrics into actionable business intelligence. With a keen eye on digital trends, I help brands make a lasting impression in the online world."
+          subtitle="During his tenure as Social Media Marketing Manager at Digital Titan, Yasir spearheaded comprehensive digital growth strategies. His focus was on establishing authoritative brand voices, driving community engagement, and translating social metrics into actionable business intelligence. With a keen eye on digital trends, he helps brands make a lasting impression in the online world."
           tags={['Brand Strategy', 'Community Engagement', 'Analytics', 'Growth Hacking']}
           images={performanceImages}
           className="h-full min-h-0"
@@ -69,7 +69,7 @@ const Case = () => {
       <div className="bg-muted sticky top-0 h-screen overflow-hidden">
         <HeroSection
           title={<>E-commerce & Real Estate Scaling</>}
-          subtitle="At Labbaik Real Estate and Looknice.store, I crafted tailored social media strategies to drive localized and global sales. From optimizing Google Business Profiles for maximum local visibility to executing high-converting e-commerce ad campaigns, I ensured consistent lead generation and revenue growth across vastly different industries."
+          subtitle="At Labbaik Real Estate and Looknice.store, Yasir crafted tailored social media strategies to drive localized and global sales. From optimizing Google Business Profiles for maximum local visibility to executing high-converting e-commerce ad campaigns, he ensured consistent lead generation and revenue growth across vastly different industries."
           tags={['E-commerce', 'Lead Generation', 'LinkedIn Optimization', 'Google Business Profile']}
           images={motionImages}
           className="bg-transparent! h-full min-h-0"

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 import TextPressure from "@/components/TextPressure";
 import { RadialIntro } from "@/components/animate-ui/components/community/radial-intro";
@@ -24,10 +25,10 @@ const Hero = () => {
   const imageRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
   const titleWrapperRef = useRef<HTMLDivElement>(null);
-  const descRef = useRef<HTMLParagraphElement>(null);
+  const descRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
       gsap.fromTo(
         glowRef.current,
         { opacity: 0, scale: 0.5 },
@@ -51,10 +52,9 @@ const Hero = () => {
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 1.2, delay: 0.6, ease: "power3.out" },
       );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    },
+    { scope: containerRef },
+  );
 
   return (
     <div
@@ -67,7 +67,7 @@ const Hero = () => {
         ref={glowRef}
         className="absolute left-1/2 -translate-x-1/2 md:left-[15%] md:translate-x-0 bottom-[10%] h-[300px] w-[300px] md:h-[500px] md:w-[500px] rounded-full blur-[120px] opacity-0 pointer-events-none"
         style={{
-          background: "radial-gradient(circle, #FF6BF5 0%, #FFBE0B 100%)",
+          background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
           zIndex: 2,
           transform: "translate3d(0,0,0)",
         }}

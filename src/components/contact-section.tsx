@@ -36,14 +36,14 @@ export function ContactSection() {
 		<ScrollReveal childSelector=".reveal-item" className="relative mx-auto grid h-full w-full max-w-4xl rounded-2xl border md:grid-cols-[1fr_0.70fr] overflow-hidden" scale={0.95} y={80}>
 			<div className="col-span-1 flex flex-col space-y-4 p-8 lg:p-10">
 				<h1 className="reveal-item font-medium text-2xl tracking-wide md:text-3xl">
-					Contact With Us
+					Contact Yasir
 				</h1>
 				<p className="reveal-item max-w-md text-muted-foreground text-sm leading-relaxed md:text-base">
-					If you have any questions regarding our Services or need help, please
+					If you have any questions regarding his services or need help, please
 					fill out the form here.
 				</p>
 				<p className="reveal-item max-w-md text-muted-foreground text-xs leading-relaxed md:text-sm">
-					We do our best to respond within 1 business day.
+					He does his best to respond within 1 business day.
 				</p>
 				<div className="grid gap-4">
 					{contactInfo?.map((info) => (

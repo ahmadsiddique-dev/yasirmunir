@@ -32,16 +32,7 @@ export default function GlassNavbar() {
     WebkitBackdropFilter: "blur(24px) saturate(1.8)",
   };
 
-  const ctaStyle = {
-    background: "rgba(78, 119, 154, 0.85)",
-    border: "1px solid rgba(78, 119, 154, 0.4)",
-    boxShadow: "0 2px 16px rgba(78, 119, 154, 0.35)",
-  };
 
-  const ctaHoverStyle = {
-    background: "rgba(78, 119, 154, 1)",
-    boxShadow: "0 4px 24px rgba(78, 119, 154, 0.55)",
-  };
 
   return (
     <div
@@ -59,8 +50,9 @@ export default function GlassNavbar() {
           className="pointer-events-none absolute inset-0 z-[-1] rounded-full"
           style={glassBlur}
         />
-        <div
-          className="flex cursor-pointer items-center gap-2 pl-1 pr-2"
+        <Link
+          href="/"
+          className="flex cursor-pointer items-center pl-1"
         >
           <div className="relative h-10 w-10">
             <Image
@@ -71,8 +63,7 @@ export default function GlassNavbar() {
               priority
             />
           </div>
-          <span className="text-sm font-semibold text-white/95 tracking-wide">Yasir Munir</span>
-        </div>
+        </Link>
 
         <div className="flex-1" />
 
@@ -114,10 +105,9 @@ export default function GlassNavbar() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.04, ...ctaHoverStyle }}
+            whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
-            className="ml-2 cursor-pointer rounded-full px-5 py-2 text-sm font-semibold text-white text-center"
-            style={ctaStyle}
+            className="ml-2 cursor-pointer rounded-full px-5 py-2 text-sm font-semibold text-primary-foreground text-center bg-primary hover:bg-primary/90 transition-all duration-200 shadow-[0_2px_16px_rgba(59,130,246,0.3)] hover:shadow-[0_4px_24px_rgba(59,130,246,0.5)]"
             transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
           >
             Resume
@@ -196,8 +186,7 @@ export default function GlassNavbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
-              className="mt-1 cursor-pointer rounded-full px-5 py-2.5 text-sm font-semibold text-white text-center"
-              style={ctaStyle}
+              className="mt-1 cursor-pointer rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground text-center bg-primary hover:bg-primary/90 transition-all"
             >
               Resume
             </a>
