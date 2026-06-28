@@ -19,7 +19,7 @@ const contactInfo = [
 			/>
 		),
 		label: "Email",
-		value: "mail@example.com",
+		value: "yasirshikrani@gmail.com",
 	},
 	{
 		icon: (
@@ -27,7 +27,7 @@ const contactInfo = [
 			/>
 		),
 		label: "Phone",
-		value: "+92 312 1234567",
+		value: "+92 326 6138 477",
 	},
 ];
 
@@ -114,7 +114,7 @@ function ContactForm() {
 					<Input 
 						autoComplete="off" 
 						id="full-name" 
-						placeholder="John Doe" 
+						placeholder="Yaser Munir" 
 						{...register("fullname")}
 					/>
 					{errors.fullname && <FieldError>{errors.fullname.message}</FieldError>}
@@ -124,7 +124,7 @@ function ContactForm() {
 					<Input
 						autoComplete="off"
 						id="email"
-						placeholder="johndoe@example.com"
+						placeholder="abc@example.com"
 						type="email"
 						{...register("email")}
 					/>
@@ -135,7 +135,7 @@ function ContactForm() {
 					<Input
 						autoComplete="off"
 						id="phone"
-						placeholder="+1 (555) 123-4567"
+						placeholder="+92 300 1234567"
 						type="tel"
 						{...register("phonenumber")}
 					/>
