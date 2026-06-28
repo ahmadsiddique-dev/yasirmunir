@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { CardStack, CardStackItem } from "@/components/ruixen/card-stack";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
@@ -73,6 +74,21 @@ export default function Carousel() {
           autoAdvance
           intervalMs={3000}
           pauseOnHover
+          renderCard={(item) => (
+            <div className="relative h-full w-full">
+              {item.imageSrc && (
+                <Image
+                  src={item.imageSrc}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                  draggable={false}
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 420px, 520px"
+                />
+              )}
+            </div>
+          )}
         />
       </ScrollReveal>
     </div>
