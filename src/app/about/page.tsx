@@ -470,7 +470,7 @@ export default function AboutPage() {
               />
               <div className="space-y-4">
                 <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
-                  He is <span className="text-primary font-semibold">Yasir Munir</span>, a results-driven <span className="text-primary font-semibold">Digital Marketer</span> who believes that real marketing is about solving core business problems, not just running generic ads.
+                  <span className="text-primary font-semibold">Yasir Munir</span>, a results-driven <span className="text-primary font-semibold">Digital Marketer</span> who believes that real marketing is about solving core business problems, not just running generic ads.
                 </p>
                 <p className="text-[17px] text-zinc-300 leading-[1.47] tracking-[-0.374px]">
                   His journey started at the <span className="text-[#2997ff] font-medium">age of 16</span>, sparked by a curiosity about how businesses grow online. While continuing his studies, he invested countless hours testing strategies and mastering the digital space through hands-on work.
