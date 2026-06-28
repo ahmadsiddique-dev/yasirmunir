@@ -1,9 +1,9 @@
-import React from 'react'
+import Loader from "@/components/ui/loader";
 
-const loading = () => {
+export default function Loading() {
   return (
-    <div>loading...</div>
-  )
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <Loader />
+    </div>
+  );
 }
-
-export default loading
