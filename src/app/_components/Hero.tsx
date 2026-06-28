@@ -99,7 +99,7 @@ const Hero = () => {
           style={{ zIndex: 10, transform: "translate3d(0,0,0)" }}
         >
           <Image
-            src="/image.png"
+            src="/image.webp"
             alt="Yasir Munir"
             width={650}
             height={800}
